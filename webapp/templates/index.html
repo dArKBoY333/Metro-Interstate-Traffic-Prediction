@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Metro Interstate Traffic Prediction
+{% endblock title %}
+
+{% block custom_css %}
+<!-- Custom CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% endblock custom_css %}
+
+{% block body %}
+<!-- Background Image -->
+<div class="bg-image"></div>
+
+<!-- nav bar -->
+<nav class="navbar navbar-expand-lg navbar-light shadow fixed-top" style="background-color: #e3f2fd;">
+    <div class="container d-flex justify-content-center">
+        <a class="navbar-brand" href="/">Metro Interstate Traffic Prediction</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Your content here -->
+<div class="container-fluid masthead">
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <form method="POST">
+                    <!-- Input block-->
+                    <div class="form-group">
+                        <label for="translation">
+                            <blockquote class="blockquote">
+                                <p class="mb-2">Enter the details as indicated:</p>
+                            </blockquote>
+                        </label>
+                        <br>
+                        <label for="Holiday">Holiday:</label>
+                        <textarea class="form-control" name="holiday" rows="1" placeholder="Holiday expected range 0 and 1"></textarea>
+                        <label for="temp">Temperature:</label>
+                        <textarea class="form-control" name="temp" rows="1" placeholder="Temperature expected range 243.39 to 310.07"></textarea>
+                        <label for="clouds_all">Cloud Percentage:</label>
+                        <textarea class="form-control" name="clouds_all" rows="1" placeholder="Cloud Percentage expected range 0 to 100"></textarea>
+                        <label for="weather_main">Weather Conditions:</label>
+                        <textarea class="form-control" name="weather_main" rows="1" placeholder="Weather Info "></textarea>
+                        <label for="month">Month:</label>
+                        <textarea class="form-control" name="month" rows="1" placeholder="Month expected range 1 to 12"></textarea>
+                        <label for="weekday">Weekday:</label>
+                        <textarea class="form-control" name="weekday" rows="1" placeholder="Weekday expected range 0 to 6"></textarea>
+                        <label for="hour">Hour:</label>
+                        <textarea class="form-control" name="hour" rows="1" placeholder="Current Hour expected range 0 to 23"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">Predict</button>
+                    </br>
+                </form>
+            </div>
+            <div class="col">
+                <form>
+                    <div class="form-group">
+                        <label for="translation-result">
+                            <blockquote class="blockquote">
+                                <p class="mb-2">Prediction:</p>
+                            </blockquote>
+                        </label>
+                        <textarea readonly class="form-control" id="exTextarea" rows="5">{{ response }}</textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="col">
+                <form>
+                    <div class="form-group">
+                        <label for="translation-result">
+                            <blockquote class="blockquote">
+                                <p class="mb-2">Weather Category:</p>
+                            </blockquote>
+                        </label>
+                        <textarea readonly class="form-control auto-fit-textarea" id="exTextarea" rows="12">
+                            Clear : 0
+                            Clouds : 1
+                            Drizzle : 2
+                            Fog : 3
+                            Haze : 4
+                            Mist : 5
+                            Rain : 6
+                            Smoke : 7
+                            Snow : 8
+                            Squall : 9
+                            Thunderstorm : 10
+                        </textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
+
+{% block custom_js %}
+<!-- Custom JS -->
+<script src="{{ url_for('static', filename='script/index.js') }}"></script>
+{% endblock custom_js %}

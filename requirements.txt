@@ -1,0 +1,14 @@
+flask
+pandas
+numpy
+pymongo
+dvc
+dvc[gdrive]
+mlflow
+xgboost
+scikit-learn
+pytest
+tox
+gunicorn
+
+-e .

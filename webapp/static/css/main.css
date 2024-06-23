@@ -1,0 +1,145 @@
+/* main.css */
+
+/* Navbar */
+
+/* main.css */
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.bg-image {
+    /* The image used */
+    background-image: url('/static/images/traffic.jpg');
+
+    /* Add the blur effect */
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* Position it fixed so it doesn't scroll with the page */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1; /* Ensure the background is behind other content */
+}
+
+/* Additional CSS to ensure content appears above the background */
+.container-fluid.masthead {
+    position: relative;
+    z-index: 1;
+}
+
+.navbar {
+    background-color: #2c3e50 !important; /* Dark background color for the navbar */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ecf0f1 !important; /* Light text color */
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28236, 240, 241, 0.8%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Container */
+.container-fluid.masthead {
+    background: url("{{ url_for('static', filename='images/traffic-bg.jpg') }}") no-repeat center center;
+    background-size: cover;
+    padding: 60px 0;
+}
+
+/* Form */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-control {
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #34495e; /* Darker border color */
+    background-color: #2c3e50; /* Dark background color for input fields */
+    color: #ecf0f1; /* Light text color */
+    transition: border-color 0.3s;
+}
+
+.form-control:focus {
+    border-color: #5dade2;
+    box-shadow: 0 0 5px rgba(93, 173, 226, 0.5);
+}
+
+/* Button */
+.btn-primary {
+    background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%); /* Dark gradient */
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ecf0f1; /* Light text color */
+    border-radius: 20px;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%); /* Darker hover effect */
+}
+
+/* Blockquotes */
+.blockquote {
+    border-left: 5px solid #5dade2;
+    padding-left: 10px;
+    color: #
+    ;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+/* Textarea */
+textarea {
+    resize: none;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #34495e; /* Darker border color */
+    background-color: #2c3e50; /* Dark background color */
+    color: #ecf0f1; /* Light text color */
+}
+
+textarea[readonly] {
+    background-color: #34495e; /* Slightly lighter background for readonly fields */
+    border-color: #2c3e50;
+}
+
+/* Custom Scrollbar for Textareas */
+textarea::-webkit-scrollbar {
+    width: 12px;
+}
+
+textarea::-webkit-scrollbar-track {
+    background: #34495e;
+    border-radius: 10px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background: #5dade2;
+    border-radius: 10px;
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+    background: #3498db;
+}
