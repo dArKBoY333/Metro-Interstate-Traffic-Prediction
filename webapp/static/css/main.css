@@ -11,11 +11,11 @@ body, html {
 
 .bg-image {
     /* The image used */
-    background-image: url('/static/images/traffic.jpg');
+    background-image: url('/static/images/traffic2.jpg');
 
     /* Add the blur effect */
-    filter: blur(2px);
-    -webkit-filter: blur(2px);
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
 
     /* Full height */
     height: 100%;
@@ -72,9 +72,10 @@ body, html {
 
 .form-control {
     border-radius: 10px;
+    background-color: #001f3f;
     padding: 10px;
     border: 1px solid #34495e; /* Darker border color */
-    background-color: #2c3e50; /* Dark background color for input fields */
+ /* Dark background color for input fields */
     color: #ecf0f1; /* Light text color */
     transition: border-color 0.3s;
 }
@@ -104,22 +105,19 @@ body, html {
 .blockquote {
     border-left: 5px solid #5dade2;
     padding-left: 10px;
-    color: #
-    ;
+    color: #ecf0f1;
     font-size: 1.2rem;
     margin-bottom: 1rem;
 }
 
-/* Textarea */
-textarea {
-    resize: none;
-    border-radius: 10px;
-    padding: 10px;
-    border: 1px solid #34495e; /* Darker border color */
-    background-color: #2c3e50; /* Dark background color */
-    color: #ecf0f1; /* Light text color */
-}
 
+/* Textarea */
+textarea.form-control {
+border: 1px solid black;
+    background-color: white;
+    color: black; /* Set text color inside textarea to white for contrast */
+     /* Ensure the border is also black */
+}
 textarea[readonly] {
     background-color: #34495e; /* Slightly lighter background for readonly fields */
     border-color: #2c3e50;
@@ -142,4 +140,7 @@ textarea::-webkit-scrollbar-thumb {
 
 textarea::-webkit-scrollbar-thumb:hover {
     background: #3498db;
+}
+label {
+    color: white;
 }
