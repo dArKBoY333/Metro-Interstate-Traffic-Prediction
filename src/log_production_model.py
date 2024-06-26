@@ -11,6 +11,7 @@ import os
 
 def log_production_model(config_path):
     try:
+        print(11111111111111111111111111)
         logging.info(f"{'-'*30} Logging Production Model. {'-'*30}")
         logging.info('Reading Parameters.')
         config = read_yaml(config_path)

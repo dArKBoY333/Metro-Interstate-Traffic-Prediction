@@ -58,7 +58,7 @@ train_evaluate:
     scores_file : model_reports/scores.json
     params_file : model_reports/params.json
 
-production_model_path: saved_models/model.joblib
+  save_model_path: saved_models/model.joblib
 
 web_model_dir: prediction_service/model/model.joblib
 

@@ -9,6 +9,7 @@ from sklearn.preprocessing  import LabelEncoder
 # repro
 def prepare_data(config_path):
     try:
+        print(111111111111111111111111111)
         logging.info(f"{'-'*30} Preparing the data {'-'*30}")
         logging.info("Reading Parameters.")
         config = read_yaml(config_path)

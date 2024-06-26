@@ -1,0 +1,109 @@
+schema: '2.0'
+stages:
+  load_data:
+    cmd: python src/load_data.py --config=params.yaml
+    deps:
+    - path: data_given/Metro_Interstate_Traffic_Volume.csv
+      hash: md5
+      md5: 6859e23503b33f7a822b45a85220275b
+      size: 2905056
+    - path: src/get_data_from_database.py
+      hash: md5
+      md5: 4278a3aea6f17a53bebc5f0545fd4028
+      size: 3053
+    - path: src/load_data.py
+      hash: md5
+      md5: 27e44329d38c48e5a5772405ce70e606
+      size: 967
+    outs:
+    - path: data/raw/traffic_data.csv
+      hash: md5
+      md5: e524b387678568e1c91edb306d656723
+      size: 3091844
+  validate_data:
+    cmd: python src/validate_data.py --config=params.yaml
+    deps:
+    - path: data/raw/traffic_data.csv
+      hash: md5
+      md5: e524b387678568e1c91edb306d656723
+      size: 3091844
+    - path: src/validate_data.py
+      hash: md5
+      md5: d88af6a86172b407144cd7f630810467
+      size: 3211
+  prepare_data:
+    cmd: python src/prepare_data.py --config=params.yaml
+    deps:
+    - path: data/raw/traffic_data.csv
+      hash: md5
+      md5: e524b387678568e1c91edb306d656723
+      size: 3091844
+    - path: src/prepare_data.py
+      hash: md5
+      md5: dafe36fbea023ca624900bda9cc75393
+      size: 3795
+    outs:
+    - path: data/prepared/cleaned_traffic_data.csv
+      hash: md5
+      md5: 0f45e77f9af3dcd19b12ab0b40401600
+      size: 3152590
+    - path: data/prepared/model_traffic_data.csv
+      hash: md5
+      md5: 89a1cb86a50f047f067a2aea3d29d60a
+      size: 1257815
+  split_data:
+    cmd: python src/split_data.py --config=params.yaml
+    deps:
+    - path: data/prepared/model_traffic_data.csv
+      hash: md5
+      md5: 89a1cb86a50f047f067a2aea3d29d60a
+      size: 1257815
+    - path: src/split_data.py
+      hash: md5
+      md5: 9bf63e39848dee8d191701e5dfc187cd
+      size: 1904
+    outs:
+    - path: data/processed/test_traffic_data.csv
+      hash: md5
+      md5: 38efb409c9043dd46e173c04ce23277a
+      size: 251650
+    - path: data/processed/train_traffic_data.csv
+      hash: md5
+      md5: 401283606b1799e4dda3c7b611b8db64
+      size: 1006237
+  train_and_evaluate:
+    cmd: python src/train_and_evaluate.py --config=params.yaml
+    deps:
+    - path: data/processed/test_traffic_data.csv
+      hash: md5
+      md5: 38efb409c9043dd46e173c04ce23277a
+      size: 251650
+    - path: data/processed/train_traffic_data.csv
+      hash: md5
+      md5: 401283606b1799e4dda3c7b611b8db64
+      size: 1006237
+    - path: src/train_and_evaluate.py
+      hash: md5
+      md5: bed7a54c78a15737124240d3e077eac6
+      size: 4759
+    params:
+      params.yaml:
+        train_evaluate.estimators.XGBoostRegressor.params.alpha: 0.5
+        train_evaluate.estimators.XGBoostRegressor.params.cosample_bytree: 1
+        train_evaluate.estimators.XGBoostRegressor.params.max_depth: 9
+        train_evaluate.estimators.XGBoostRegressor.params.min_child_weight: 1
+        train_evaluate.estimators.XGBoostRegressor.params.subsample: 1
+    outs:
+    - path: model_reports/params.json
+      hash: md5
+      md5: 2d6e2863332734eebf14f98950b9448a
+      size: 119
+    - path: model_reports/scores.json
+      hash: md5
+      md5: 90d6ba3c0d92f140f5a361639340e8c5
+      size: 98
+    - path: saved_models/model.joblib
+      hash: md5
+      md5: b4569693e05801b8bbc211980bc904ef.dir
+      size: 2472443
+      nfiles: 1

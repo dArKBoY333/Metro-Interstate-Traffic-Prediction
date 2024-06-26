@@ -1,0 +1,8 @@
+[2024-06-27 00:27:02,653] root - INFO ------------------------------ Spliting the model ready data into train and test files. ------------------------------
+[2024-06-27 00:27:02,653] root - INFO Reading Parameters.
+[2024-06-27 00:27:02,661] root - ERROR 
+        Error occured in script: 
+        [ C:\app\Metro-Interstate-Traffic-Prediction-using-dvc-and-mlflow-main\Metro-Interstate-Traffic-Prediction-using-dvc-and-mlflow-main\src\train_and_evaluate.py ] at 
+        try block line number: [30] and exception block line number: [93] 
+        error message: ['save_model_path']
+        

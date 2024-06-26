@@ -9,6 +9,7 @@ from dbconstant import connection_string,collection_name,database_name
 
 def upload_get_data(param_config_path):
     try:
+        print(1111111111111111111111111111111111111111)
         logging.info(f"{'-'*30} Loading the data from database {'-'*30}")
         logging.info("Reading required parameters.")
 

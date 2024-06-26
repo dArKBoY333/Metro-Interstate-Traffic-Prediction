@@ -8,6 +8,7 @@ from sklearn.model_selection import train_test_split
 # repro
 def split_data(config_path):
     try:
+        print(11111111111111111111111111111)
         logging.info(f"{'-'*30} Spliting the model ready data into train and test files. {'-'*30}")
         logging.info('Reading Parameters.')
         config = read_yaml(config_path)

@@ -32,6 +32,7 @@ stages:
     - data/processed/train_traffic_data.csv
     - data/processed/test_traffic_data.csv
 
+
   train_and_evaluate:
     cmd: python src/train_and_evaluate.py --config=params.yaml
     deps: 
@@ -49,12 +50,5 @@ stages:
         cache: false
     - model_reports/params.json:
         cache: false
-
-  log_production_model:
-    cmd: python src/log_production_model.py --config=params.yaml
-    deps:
-    - src/log_production_model.py
-
-
-
-  
+    outs:
+    - saved_models/model.joblib

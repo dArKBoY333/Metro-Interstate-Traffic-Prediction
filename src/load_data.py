@@ -8,6 +8,7 @@ from exception import Project_Exception
 # repro
 def load_data(config_path):
     try:
+        print(111111111111111111111111)
         config = read_yaml(config_path)
         df = upload_get_data(config_path)
         raw_data_path = config['load_data']['raw_dataset_csv']
